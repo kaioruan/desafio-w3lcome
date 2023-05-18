@@ -17,6 +17,17 @@ class taskController {
     if (!task) return res.status(500).json({ message: 'Internal Server Error' });
     return res.status(201).json(task);
   };
+
+  public updateTask = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+    const { titulo, concluida } = req.body;
+    await this.taskService.updateTask(
+      Number(id),
+      titulo as string,
+      concluida as boolean,
+    );
+    return res.status(200).send();
+  };
 }
 
 export default taskController;
