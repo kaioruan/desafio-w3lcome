@@ -19,6 +19,12 @@ class TaskService {
     if (!verifyTask) throw new Error('Task not found');
     await this.model.update({ titulo, concluida }, { where: { id } });
   };
+
+  public deleteTask = async (id: number): Promise<void> => {
+    const verifyTask = await this.model.findByPk(id);
+    if (!verifyTask) throw new Error('Task not found');
+    await this.model.destroy({ where: { id } });
+  };
 }
 
 export default TaskService;
