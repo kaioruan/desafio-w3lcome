@@ -28,6 +28,12 @@ class taskController {
     );
     return res.status(200).send();
   };
+
+  public deleteTask = async (req: Request, res: Response): Promise<Response> => {
+    const { id } = req.params;
+    await this.taskService.deleteTask(Number(id));
+    return res.status(200).send();
+  };
 }
 
 export default taskController;
