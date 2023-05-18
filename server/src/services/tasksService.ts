@@ -8,6 +8,11 @@ class TaskService {
     const tasks = await this.model.findAll({ raw: true });
     return tasks as ITask[];
   };
+
+  public createTask = async (titulo: string, concluida: boolean): Promise<ITask> => {
+    const task = await this.model.create({ titulo, concluida });
+    return task as ITask;
+  };
 }
 
 export default TaskService;
