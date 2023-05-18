@@ -1,4 +1,5 @@
 import * as express from 'express';
+import tasksRouter from './routers/tasksRouter';
 
 
 class App {
@@ -10,6 +11,7 @@ class App {
     this.config();
     this.app.get('/', (req, res) => res.json({ ok: true }));
     // Não remover essa rota
+    this.app.use('/', tasksRouter);
   }
 
   private config():void {
