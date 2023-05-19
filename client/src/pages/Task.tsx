@@ -7,31 +7,38 @@ function Task() {
   const [newTask, setNewTask] = useState('');
 
   const fetchAPI = async () => {
-    const response = await fetch('http://localhost:3001/tasks');
+    const response = await fetch('http://localhost:3001/tasks', {
+      method: 'GET'
+      })
     const data = await response.json();
     setTasks(data);
   }
 
-useEffect(() => {
-  fetchAPI();
-}, []);
+  useEffect(() => {
+    fetchAPI();
+  }, []);
 
-const handleAddTask = () => {
-  fetch('http://localhost:3001/tasks', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({titulo: newTask, concluida: false})
-  })
-    .then(res => res.json())
-    .then(data => {
-      fetchAPI();
-      console.log(data);
-    });
-}
+  const handleAddTask = () => {
+    fetch('http://localhost:3001/tasks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({titulo: newTask, concluida: false})
+    })
+      .then(res => res.json())
+      .then(data => {
+        fetchAPI();
+      });
+  }
 
-console.log(typeof(tasks[0]))
+  const handleDeleteTask = async (id: number) => {
+    await fetch(`http://localhost:3001/tasks/${id}`, {
+      method: 'DELETE'
+    })
+    fetchAPI();
+  }  
+
   return (
     <div>
       <input 
@@ -46,6 +53,7 @@ console.log(typeof(tasks[0]))
       { tasks.map((task : ITask) => (
         <TaskCard 
         task={task}
+        handleDeleteTask={handleDeleteTask}
         key={task.id} />
       ))}
     </div>
