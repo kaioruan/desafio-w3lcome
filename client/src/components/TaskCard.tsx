@@ -4,15 +4,18 @@ import {ITask} from '../interface/ITask';
 type TaskProps = {
   task: ITask;
   handleDeleteTask: (param: number) => void;
+  handleUpdateTask: (task : ITask) => void;
 }
 
 
-function Task({task, handleDeleteTask  }: TaskProps) {
+function Task({task, handleDeleteTask, handleUpdateTask  }: TaskProps) {
   return (
     <div>
       <h1>{task.titulo}</h1>
       <button
-      >{ task.concluida}</button>
+        onClick={() => handleUpdateTask(task)}
+        type="button"
+      >{task.concluida ? 'desfazer' : 'concluir'}</button>
       <button
         onClick={() => handleDeleteTask(task.id)}
         type="button"

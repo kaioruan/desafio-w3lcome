@@ -37,7 +37,20 @@ function Task() {
       method: 'DELETE'
     })
     fetchAPI();
-  }  
+  }
+
+  const handleUpdateTask = async (task : ITask) => {
+    console.log('Task not found');
+    task.concluida = !task.concluida;
+    await fetch(`http://localhost:3001/tasks/${task.id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(task)
+    })
+    fetchAPI();
+  }
 
   return (
     <div>
@@ -53,6 +66,7 @@ function Task() {
       { tasks.map((task : ITask) => (
         <TaskCard 
         task={task}
+        handleUpdateTask={handleUpdateTask}
         handleDeleteTask={handleDeleteTask}
         key={task.id} />
       ))}
