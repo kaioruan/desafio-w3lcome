@@ -1,0 +1,94 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #c0ceda;
+  font-family: 'DM Sans';
+  font-style: normal;
+  color: #334a54;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 25px;
+}
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+header section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+header {
+  width: 60%;
+  margin: 0 auto;
+  padding-top: 3rem;
+  border-radius: 5px;
+}
+
+.add-task-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+#todo-input {
+  border-radius: 5px;
+  padding: 0.5rem;
+  width: 80%;
+  border: 2px outset #0e959d;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#todo-edit-input {
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-size: large;
+  color: white;
+}
+
+.edit-btn-container {
+  width: 5rem;
+  padding: 0.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-around;
+}
+
+.task-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.task-card {
+  width: 100%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  border: 1px groove #0e959d;
+  margin-top: 1.5rem;
+  background: linear-gradient(90deg, #494db3 0%, #90b4d4 100%); 
+  border-radius: 5px;
+}
+
+.concluida {
+  text-decoration: line-through;
+  text-decoration-color: black;
+  text-decoration-thickness: 1.5px;
+}

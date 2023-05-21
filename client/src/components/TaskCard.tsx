@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {ITask} from '../interface/ITask';
+import Trash from '../icons/trash.png';
+import Pencil from '../icons/pencil-simple-line.png';
 
 type TaskProps = {
   task: ITask;
@@ -7,19 +9,29 @@ type TaskProps = {
   handleUpdateTask: (task : ITask) => void;
 }
 
-
 function Task({task, handleDeleteTask, handleUpdateTask  }: TaskProps) {
   return (
-    <div>
-      <h1>{task.titulo}</h1>
-      <button
-        onClick={() => handleUpdateTask(task)}
-        type="button"
-      >{task.concluida ? 'desfazer' : 'concluir'}</button>
-      <button
-        onClick={() => handleDeleteTask(task.id)}
-        type="button"
-      >apagar</button>
+    <div className="task-card">
+      <h1
+        id="todo-edit-input"
+        className={task.concluida ? 'concluida' : ''}
+      >{task.titulo }</h1>
+      <div className="edit-btn-container">
+        <button
+          onClick={() => handleUpdateTask(task)}
+          type="button"
+          className="btn-concluir"
+        >
+          <img src={Pencil} alt="save-icon" width="20px" />
+        </button>
+        <button
+          onClick={() => handleDeleteTask(task.id)}
+          type="button"
+          className="btn-delete"
+        >
+          <img src={Trash} alt="save-icon" width="20px" />
+        </button>
+      </div>
     </div>
   );
 }
