@@ -26,7 +26,7 @@ services:
     working_dir: /server
     command: npm run dev
     volumes: 
-      - ./backend/src:/app-backend/src
+      - ./server/src:/server/src
     depends_on:
       db:
         condition: service_healthy
