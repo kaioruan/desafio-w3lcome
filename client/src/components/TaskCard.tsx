@@ -11,10 +11,9 @@ type TaskProps = {
 
 function Task({task, handleDeleteTask, handleUpdateTask  }: TaskProps) {
   return (
-    <div className="task-card">
+    <div className="task-card" id={task.concluida ? 'concluida' : ''} >
       <h1
         id="todo-edit-input"
-        className={task.concluida ? 'concluida' : ''}
       >{task.titulo }</h1>
       <div className="edit-btn-container">
         <button

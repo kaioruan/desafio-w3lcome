@@ -87,10 +87,11 @@ form {
   border-radius: 5px;
 }
 
-.concluida {
+#concluida {
   text-decoration: line-through;
   text-decoration-color: black;
   text-decoration-thickness: 1.5px;
+  font-style: italic;
 }
 
 .todo-type-container {
