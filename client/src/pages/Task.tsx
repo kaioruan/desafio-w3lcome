@@ -7,6 +7,10 @@ import ToDoList from '../icons/clipboard-text.png';
 function Task() {
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState('');
+  const [andamento, setAndamento] = useState(0);
+  const [finalizada, setFinalizada] = useState(0);
+  const [filter, setFilter] = useState('');
+  const [filterTasks, setFilterTasks] = useState([]);
 
   const fetchAPI = async () => {
     const response = await fetch('http://localhost:3001/tasks', {
@@ -14,11 +18,29 @@ function Task() {
       })
     const data = await response.json();
     setTasks(data);
+    setFilterTasks(data);
+    const andamento = data.filter((task : any) => task.concluida === 0);
+    const finalizada = data.filter((task : any) => task.concluida === 1);
+    setFinalizada(finalizada.length);
+    setAndamento(andamento.length);
   }
 
   useEffect(() => {
     fetchAPI();
   }, []);
+
+  useEffect(() => {
+    if (filter === 'todas') {
+      setFilterTasks(tasks);
+    } else if (filter === 'andamento') {
+      const andamento = tasks.filter((task : any) => task.concluida === 0);
+      setFilterTasks(andamento);
+    } else if (filter === 'concluidas') {
+      const finalizada = tasks.filter((task : any) => task.concluida === 1);
+      setFilterTasks(finalizada);
+    }
+  }, [filter, tasks]);
+
 
   const handleAddTask = () => {
     fetch('http://localhost:3001/tasks', {
@@ -76,7 +98,31 @@ function Task() {
         </form>
       </header>
       <div className='task-content' >
-        { tasks.map((task : ITask) => (
+        <div className="todo-type-container">
+          <button
+              type="button"
+              data-testid="list-button"
+              onClick={() => setFilter('todas')}
+              value='all'
+            >
+              {`Todas as Tarefas (${tasks ? tasks.length : 0})`}
+          </button>
+          <button
+              type="button"
+              data-testid="list-button"
+              onClick={() => setFilter('andamento')}
+            >
+              {`Tarefas Pendentes (${andamento})`}
+          </button>
+          <button
+              type="button"
+              data-testid="list-button"
+              onClick={() => setFilter('concluidas')}
+            >
+              {`Tarefas Concluídas (${finalizada})`}
+          </button>
+        </div>
+        { filterTasks.map((task : ITask) => (
           <TaskCard 
           task={task}
           handleUpdateTask={handleUpdateTask}

@@ -92,3 +92,24 @@ form {
   text-decoration-color: black;
   text-decoration-thickness: 1.5px;
 }
+
+.todo-type-container {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+.todo-type-container button {
+  cursor: pointer;
+  font-size: 14px;
+  width: 10rem;
+  box-sizing: border-box;
+  color: #334a54;
+  padding: 0.4rem 0.6rem;
+  border-radius: 5px;
+  border: 1px groove #0e959d;
+  box-shadow: 0 0 5px #2d357d;
+}
