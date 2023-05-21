@@ -1,13 +1,8 @@
-FROM node:16.14-alpine
-
+FROM node:alpine
 WORKDIR /client
-
-COPY package* ./
-
-RUN npm install
-
-COPY . .
-
+COPY package.json ./
+COPY package-lock.json ./
+COPY ./ ./
+RUN npm i
 EXPOSE 3000
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "start"]
