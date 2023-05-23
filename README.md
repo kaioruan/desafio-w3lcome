@@ -54,3 +54,97 @@ Para poder executar os testes, na raiz, utilize o comando o comando `npm run tes
 <p align="center">
 <img src="./image.png" width="600px" />
 </p>
+
+## 📚 Documentação (endpoints BACKEND)
+### 🗒️ ADmin
+| Método | Funcionalidade                              | URL                              |
+| ------ | ------------------------------------------- | -------------------------------- |
+| `GET`  | Retorna uma lista de todas as tarefas cadastradas.| http://localhost:3001/tasks |
+
+<details>
+  <summary>A resposta da requisição é a seguinte, com status 200:</summary>
+
+```json
+[
+  {
+    "id": 1,
+    "titulo": "Aprender React",
+    "concluida": 1
+  },
+  {
+    "id": 2,
+    "titulo": "Estudar NodeJS",
+    "concluida": 0
+  },
+  {
+    "id": 3,
+    "titulo": "Praticar TypeScript",
+    "concluida": 0
+  }
+]
+```
+
+</details>
+<br>
+<br>
+
+| Método | Funcionalidade                                | URL                              |
+| ------ | --------------------------------------------- | -------------------------------- |
+| `POST` | Adiciona uma nova tarefa. | http://localhost:3001/tasks |
+
+<details>
+  <summary>A estrutura do <code>body</code> da requisição deverá seguir o padrão abaixo:</summary>
+
+```json
+  {
+    "titulo": "Aprender Java",
+    "concluida": 1
+  }
+```
+
+</details>
+
+<details>
+  <summary>A resposta da requisição é a seguinte, com status 201:</summary>
+
+```json
+{
+  "id": 4,
+  "titulo": "Aprender Java",
+  "concluida": true
+}
+```
+
+</details>
+<br>
+
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `PATCH`  | Atualiza uma task. | http://localhost:3001/tasks/:id |
+
+<details>
+  <summary>A estrutura do <code>body</code> da requisição deverá seguir o padrão abaixo:</summary>
+
+```json
+  {
+    "titulo": "Aprender Java",
+    "concluida": 0
+  }
+```
+
+</details>
+
+<details>
+  <summary>A requisição retorna o status 200 de concluido.</summary>
+<br>
+| Método | Funcionalidade                            | URL                        |
+| ------ | ----------------------------------------- | -------------------------- |
+| `DELETE`  | Deleta uma task do banco de dados. | http://localhost:3001/tasks/:id |
+
+<details>
+  <summary>A resposta da requisição é o status 200.</summary>
+
+
+</details>
+<br>
+<br>
