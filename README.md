@@ -136,6 +136,7 @@ Para poder executar os testes, na raiz, utilize o comando o comando `npm run tes
 
 <details>
   <summary>A requisição retorna o status 200 de concluido.</summary>
+  </details>
 <br>
 | Método | Funcionalidade                            | URL                        |
 | ------ | ----------------------------------------- | -------------------------- |
