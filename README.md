@@ -138,6 +138,7 @@ Para poder executar os testes, na raiz, utilize o comando o comando `npm run tes
   <summary>A requisição retorna o status 200 de concluido.</summary>
   </details>
 <br>
+
 | Método | Funcionalidade                            | URL                        |
 | ------ | ----------------------------------------- | -------------------------- |
 | `DELETE`  | Deleta uma task do banco de dados. | http://localhost:3001/tasks/:id |
