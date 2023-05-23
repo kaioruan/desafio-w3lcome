@@ -52,5 +52,5 @@ Para poder executar os testes, na raiz, utilize o comando o comando `npm run tes
 ---
 
 <p align="center">
-<img src="image.png" width="600px" />
+<img src="./image.png" width="600px" />
 </p>
