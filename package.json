@@ -1,0 +1,11 @@
+{
+  "name": "desafio-fabritech-fullstack",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm run install:apps",
+    "install:apps": "./apps_install.sh",
+    "dev:backend": "(cd server && npm run dev)",
+    "dev:frontend": "(cd client && npm run dev)",
+    "test": "(cd server && npm run test:coverage)"
+  }
+}
